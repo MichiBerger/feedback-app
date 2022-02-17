@@ -1,0 +1,20 @@
+import PropTypes from "prop-types";
+
+export default function Header({ text }) {
+  return (
+    <header>
+      <div className="container">
+        <h2>{text}</h2>
+      </div>
+    </header>
+  );
+}
+
+//default props
+Header.defaultProps = {
+  text: "Feedback UI",
+};
+
+Header.propTypes = {
+  text: PropTypes.string,
+};

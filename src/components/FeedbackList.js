@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import FeedbackItem from "./FeedbackItem.js";
 
-export default function FeedbackList({ feedback }) {
+export default function FeedbackList({ feedback, handleDelete }) {
   console.log(feedback);
 
   if (!feedback || feedback.length === 0) {
@@ -11,7 +11,9 @@ export default function FeedbackList({ feedback }) {
   return (
     <div className="feedback-list">
       {feedback.map((item) => {
-        return <FeedbackItem key={item.id} item={item} />;
+        return (
+          <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
+        );
       })}
     </div>
   );

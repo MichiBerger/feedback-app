@@ -3,8 +3,6 @@ import Card from "./shared/Card.js";
 import PropTypes from "prop-types";
 
 export default function FeedbackItem({ item, handleDelete }) {
-   
-
   return (
     <Card>
       <div className="num-display">{item.rating}</div>
@@ -17,5 +15,5 @@ export default function FeedbackItem({ item, handleDelete }) {
 }
 
 FeedbackItem.propTypes = {
-  item: PropTypes.object,
+  item: PropTypes.object.isRequired,
 };

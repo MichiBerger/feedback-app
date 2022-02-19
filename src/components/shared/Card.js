@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 
 export default function Card({ children, reverse }) {
   // return <div className={`card ${reverse && 'reverse'}`}>{children}</div>;
+
   return (
-    <div
+    <article
       className="card"
       style={{
         backgroundColor: reverse ? "rgba(0,0,0,0.4)" : "#fff",
@@ -11,13 +12,13 @@ export default function Card({ children, reverse }) {
       }}
     >
       {children}
-    </div>
+    </article>
   );
 }
 
 Card.defaultProps = {
   reverse: false,
-}
+};
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,

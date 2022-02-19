@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header.js";
 import FeedbackData from "./data/FeedbackData.js";
 import FeedbackList from "./components/FeedbackList.js";
-
+import FeedbackStats from "./components/FeedbackStats.js";
 export default function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
 
@@ -19,6 +19,7 @@ export default function App() {
     <>
       <Header />
       <div className="container">
+        <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedBack} />
       </div>
     </>

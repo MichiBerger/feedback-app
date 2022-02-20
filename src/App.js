@@ -39,11 +39,8 @@ export default function App() {
             element={
               <>
                 <FeedbackForm handleAdd={addFeedback} />
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList
-                  feedback={feedback}
-                  handleDelete={deleteFeedBack}
-                />
+                <FeedbackStats />
+                <FeedbackList handleDelete={deleteFeedBack} />
               </>
             }
           ></Route>

@@ -7,6 +7,7 @@ import FeedbackStats from "./components/FeedbackStats.js";
 import FeedbackForm from "./components/FeedbackForm.js";
 import AboutPage from "./pages/AboutPage.js";
 import AboutIconLink from "./components/AboutIconLink.js";
+import { FeedbackProvider } from "./context/FeedbackContext.js";
 import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
     console.log(newFeedback);
   }
   return (
-    <>
+    <FeedbackProvider>
       <Header />
       <div className="container">
         <Routes>
@@ -51,6 +52,6 @@ export default function App() {
         </Routes>
         <AboutIconLink />
       </div>
-    </>
+    </FeedbackProvider>
   );
 }

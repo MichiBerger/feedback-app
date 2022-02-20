@@ -11,8 +11,7 @@ export default function Header({ text, bgColor, textColor }) {
     <header style={headerStyles}>
       <div className="container">
         <h2>
-        <Link to="/">{text}</Link>
-          
+          <Link to="/">{text}</Link>
         </h2>
       </div>
     </header>

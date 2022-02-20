@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import FeedbackContext from "../context/FeedbackContext.js";
 import Button from "./Button.js";
 import FeedBackRating from "./FeedBackRating.js";
@@ -10,7 +10,15 @@ export default function FeedbackForm() {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { addFeedback } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
+
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      setBtnDisabled(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+    }
+  }, [feedbackEdit]);
 
   function handleTextChange(event) {
     if (text === "") {

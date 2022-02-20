@@ -17,11 +17,15 @@ export default function App() {
       );
     }
   };
+
+  function addFeedback(newFeedback) {
+    console.log(newFeedback);
+  }
   return (
     <>
       <Header />
       <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback} />
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedBack} />
       </div>

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Button from "./Button.js";
+import FeedBackRating from "./FeedBackRating.js";
 import Card from "./shared/Card.js";
 
-export default function FeedbackForm() {
+export default function FeedbackForm({handleAdd}) {
   const [text, setText] = useState("");
+  const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -21,10 +23,24 @@ export default function FeedbackForm() {
     setText(event.target.value);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (text.trim().length > 10) {
+      const newFeedback = {
+        text,
+        rating,
+      };
+
+      handleAdd(newFeedback)
+      setText('')
+    }
+  }
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
+        <FeedBackRating select={(rating) => setRating(rating)} />
         <div className="input-group">
           <label htmlFor="review"></label>
           <input
